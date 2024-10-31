@@ -14,4 +14,5 @@ class BasicCache(BaseCaching):
             self.cache_data[key] = item
 
     def get(self, key):
+        "Retrieve the value in `self.cache_data` associated with `key`"
         return self.cache_data.get(key, None)
