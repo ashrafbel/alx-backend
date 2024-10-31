@@ -47,6 +47,8 @@ class BasicCache(BaseCaching):
         return self.cache_data.get(key, None)
 from base_caching import BaseCaching
 
+
+
 class FIFOCache(BaseCaching):
     def __init__(self):
         """Initialize the FIFO cache."""
@@ -56,36 +58,29 @@ class FIFOCache(BaseCaching):
         """Assign an item to the cache using the given key."""
         if key is None or item is None:
             return
-
         self.cache_data[key] = item
-
-        # Check if the number of items exceeds MAX_ITEMS
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            # Discard the first item (FIFO)
-            first_key = next(iter(self.cache_data))  # Get the first key
-            print(f"DISCARD: {first_key}")
-            del self.cache_data[first_key]  # Remove the first item
+            fistKey = next(iter(self.cache_data))
+            print(f"DISCARD: {fistKey}")
+            del self.cache_data[fistKey]
 
     def get(self, key):
         """Retrieve the value associated with the key in the cache."""
         if key is None or key not in self.cache_data:
             return None
-        return self.cache_data[key]
+        return self.cache_data
+
 
     
-my_cache = BasicCache()
-my_cache.print_cache()
+my_cache = FIFOCache()
 my_cache.put("A", "Hello")
 my_cache.put("B", "World")
 my_cache.put("C", "Holberton")
+my_cache.put("D", "School")
 my_cache.print_cache()
-print(my_cache.get("A"))
-print(my_cache.get("B"))
-print(my_cache.get("C"))
-print(my_cache.get("D"))
+my_cache.put("E", "Battery")
 my_cache.print_cache()
-# my_cache.put("D", "School")
-# my_cache.put("E", "Battery")
-# my_cache.put("A", "Street")
-# my_cache.print_cache()
-# print(my_cache.get("A"))
+my_cache.put("C", "Street")
+my_cache.print_cache()
+my_cache.put("F", "Mission")
+my_cache.print_cache()
