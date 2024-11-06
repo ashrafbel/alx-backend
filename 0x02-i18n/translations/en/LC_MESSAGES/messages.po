@@ -18,15 +18,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
-#~ msgid "home_title"
-#~ msgstr "Welcome to Holberton"
+# msgid "home_title"
+# msgstr "Welcome to Holberton"
 
-#~ msgid "home_header"
-#~ msgstr "Hello world!"
+# msgid "home_header"
+# msgstr "Hello world!"
 
-#~ msgid "You are logged in as %(username)s."
-#~ msgstr "You are logged in as %(username)s."
+# msgid "You are logged in as %(username)s."
+# msgstr "You are logged in as %(username)s."
 
-#~ msgid "You are not logged in."
-#~ msgstr "You are not logged in."
+# msgid "You are not logged in."
+# msgstr "You are not logged in."
+
+msgid "current_time_is"
+msgstr "The current time is %(current_time)s."
 
