@@ -1,14 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ get_locale() }}">
 <head>
-    <title>{{ _('home_title') }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Localization Example</title>
 </head>
 <body>
-    <h1>{{ _('home_header') }}</h1>
-    {% if g.user %}
-        <p>{{ _('logged_in_as', username=g.user.name) }}</p>
-    {% else %}
-        <p>{{ _('not_logged_in') }}</p>
-    {% endif %}
+    <h1>Welcome to the Flask Localization Example</h1>
+
+    <p>
+        {% if g.user %}
+            {{ _('You are logged in as %(username)s.', username=g.user['name']) }}
+        {% else %}
+            {{ _('You are not logged in.') }}
+        {% endif %}
+    </p>
+
+    <p>
+        Current Locale: {{ get_locale() }}
+    </p>
+    
 </body>
 </html>
