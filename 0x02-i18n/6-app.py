@@ -55,12 +55,6 @@ def get_locale() -> str:
     return app.config['BABEL_DEFAULT_LOCALE']
 
 
-@app.context_processor
-def inject_locale():
-    """Inject get_locale into templates."""
-    return dict(get_locale=get_locale)
-
-
 @app.route('/')
 def index() -> str:
     """Renders the index page"""
