@@ -3,6 +3,7 @@
 
 from flask import Flask, render_template, request
 from flask_babel import Babel
+from typing import Optional
 
 
 app = Flask(__name__)
@@ -22,16 +23,16 @@ babel = Babel(app)
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     "Selects the best language based on the browser's preferences."
-    local = request.args.get('locale')
+    local: Optional[str] = request.args.get('locale')
     if local and local in app.config["LANGUAGES"]:
         return local
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/')
-def index():
+def index() -> str:
     "route"
     return render_template('4-index.html')
 
